@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extension_name__",
+  "short_name": "__MSG_extension_short_name__",
+  "description": "__MSG_extension_description__",
+  "version": "0.0.1",
+  "default_locale": "en",
+  "permissions": [ "tabs", "activeTab" ],
+  "background": {
+    "page": "index.html#/event",
+    "persistent": false
+  },
+  "content_scripts": [
+      {
+          "matches": ["*://*/*"],
+          "js": ["content-script.js"]
+      }
+  ],
+  "browser_action": {
+    "default_title": "Open Popup!",
+    "default_popup": "index.html#/popup"
+  },
+  "icons": {
+    "32": "./assets/png/logo-32.png",
+    "16": "./assets/png/logo-16.png",
+    "48": "./assets/png/logo-48.png",
+    "128": "./assets/png/logo-128.png"
+  },
+  "content_security_policy": "script-src 'self' https://apis.google.com/ https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com 'unsafe-eval'; object-src 'self'"
+}

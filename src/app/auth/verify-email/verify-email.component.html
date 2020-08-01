@@ -1,0 +1,42 @@
+<!-- CONTENT
+    ================================================== -->
+    <section class="">
+      <div class="container d-flex flex-column">
+        <div class="row align-items-start justify-content-center no-gutters">
+          <div class="col-12 col-md-5 col-lg-6 py-8 pt-md-11">
+
+            <!-- Heading -->
+            <h3 class="mb-0 font-weight-bold text-center">
+              Please verify your email
+            </h3>
+
+            <!-- Text -->
+            <p class="mb-4 text-center text-muted">
+              You're almost there! We sent an email to <br> <b class="font-weight-bold text-black">{{user?.email}}</b>
+            </p>
+            <!-- Text -->
+            <p class="mb-4 text-center text-muted">
+              Just click on that link in your email to complete your signup. <br>
+              If you don't see it, you may need to <b>check your spam</b> folder.
+            </p>
+            <!-- Text -->
+            <p class="mb-4 text-center text-muted">
+              Still can't find the email?
+            </p>
+
+            <div class="text-center mb-4">
+                <!-- Submit -->
+              <button class="btn btn-success btn-sm d-inline-flex align-items-center" [disabled]="submitting" type="submit" (click)="sendVerificationEmail()">
+                <span>Resend Email</span> <div *ngIf="submitting" class="spinner-border spinner-border-sm text-white ml-5"></div>
+              </button>
+            </div>
+
+            <!-- Text -->
+            <p class="mb-0 font-size-sm text-center">
+              Need help? <a class="text-success text-underline" href="signup.html">Contact Us</a>.
+            </p>
+
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+</section>
