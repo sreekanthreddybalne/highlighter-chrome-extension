@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Injectable()
-export class JwtInterceptor implements HttpInterceptor{
+export class AuthInterceptor implements HttpInterceptor{
   constructor(
     private authService: AuthService,
     private afAuth: AngularFireAuth
@@ -14,10 +14,11 @@ export class JwtInterceptor implements HttpInterceptor{
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
 
+    console.log(this.authService.token)
     if(this.authService.token){
       request = request.clone({
         setHeaders: {
-          Authorization: `${this.authService.token}`
+          Authorization: `Bearer  ${this.authService.token}`
         }
       });
     }

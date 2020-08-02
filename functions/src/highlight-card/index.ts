@@ -29,19 +29,7 @@ declare type MethodDecorator = <T>(
   data: any,
   context: functions.https.CallableContext
  ) => TypedPropertyDescriptor<T> | void;
- 
 
- function allowAuth(message: string): MethodDecorator {
-  console.log(`${message} evaluated`);
-  return function(
-    target: Object,
-    propertyKey: string,
-    descriptor: PropertyDescriptor
-  ): void {
-    console.log(`${message} called`);
-  };
- }
- 
 const addHighlightCard$ = function(highlightCard: HighlightCard): Promise<FirebaseFirestore.DocumentReference<FirebaseFirestore.DocumentData>>{
   return admin.firestore().collection("highlightCards").add(highlightCard);
 }
@@ -53,9 +41,8 @@ const addHighlightToHighlightCard$ = function(
 }
 
 export const createHighlightCard = functions.https.onCall((data, context)=>{
-  context.auth
     console.log("sreeeeeeeeeeeeeeeeeee")
-    console.log(data)
+    console.log(context.auth)
     const { title, link, highlight } = data;
     if(!title || !link || !highlight.text){
         return new HttpsError("data-loss", "data is invalid");

@@ -16,7 +16,7 @@ function highlightHandler(e) {
           title: document.title,
           link: window.location.toString(),
           tags: keywordsElm?keywordsElm.getAttribute('content'):"",
-          highlight: text
+          highlight: {text}
       });
     }
 }

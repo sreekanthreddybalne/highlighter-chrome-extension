@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-popup',
@@ -6,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent implements OnInit {
+
+  constructor(
+    private authService: AuthService
+  ){
+
+  }
+
+
+  logout(){
+    this.authService.logout()
+  }
+
   ngOnInit() {
       this.connectWithContentScript();
       this.sendContentScriptCommand();
